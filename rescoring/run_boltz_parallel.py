@@ -14,7 +14,7 @@ def find_yaml_files(directory):
                 yaml_files.append(os.path.join(root, file))
     return yaml_files
 
-def run_boltz(input_file, output_dir, recycling_steps=10, diffusion_samples=5, cache_dir="/mnt/raid/cache/boltz1/"):
+def run_boltz(input_file, output_dir, recycling_steps=10, diffusion_samples=5, cache_dir="/cache/boltz1/"):
     command = [
         "boltz", "predict", 
         input_file,
@@ -45,7 +45,7 @@ def process_file(file, output_dir, csv_output):
             output_dir=output_dir_run,
             recycling_steps=10,
             diffusion_samples=5,
-            cache_dir="/mnt/raid/cache/boltz1/"
+            cache_dir="/cache/boltz1/"
         )
     else:
         print(f"Output directory already exists: {output_dir_run}")

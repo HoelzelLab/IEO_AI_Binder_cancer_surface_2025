@@ -8,10 +8,11 @@
 
 START_TIME=$(date +%s)
 
-input_fasta="/mnt/raid/share/Tim/reevaluation/Tim_Rescoring_Package/new_sequences.fasta"
-output_folder="/mnt/raid/share/Tim/reevaluation/Tim_Rescoring_Package/new_sequences"
+input_fasta="/new_sequences.fasta"
+output_folder="/new_sequences_results"
 
-source /opt/mambaforge/etc/profile.d/conda.sh
+# CHANGE PATHS FOR YOUR SYSTEM
+source /opt/mambaforge/etc/profile.d/conda.sh # add your conda path
 conda activate boltz
 
 # Create output_folder if it does not exist
@@ -22,14 +23,16 @@ echo "Prepare MSA input"
 if [ ! -d "$output_folder/msas" ] || [ "$(find "$output_folder/msas" -type f ! -name '*.a3m' | wc -l)" -ne 0 ]; then
   # Start MMseqs2 GPU servers
   echo "Start MMseqs2 GPU server for environmental database"
-  mmseqs gpuserver /mnt/raid/databases/colabfold/colabfold_envdb_202108_db \
+  # CHANGE PATHS FOR YOUR SYSTEM
+  mmseqs gpuserver /databases/colabfold/colabfold_envdb_202108_db \
       --max-seqs 10000 \
       --db-load-mode 0 \
       --prefilter-mode 1 &
   PID1=$!
 
   echo "Start MMseqs2 GPU server for UniRef30 database"
-  mmseqs gpuserver /mnt/raid/databases/colabfold/uniref30_2302_db \
+  # CHANGE PATHS FOR YOUR SYSTEM
+  mmseqs gpuserver /databases/colabfold/uniref30_2302_db \
       --max-seqs 10000 \
       --db-load-mode 0 \
       --prefilter-mode 1 &
@@ -39,8 +42,9 @@ if [ ! -d "$output_folder/msas" ] || [ "$(find "$output_folder/msas" -type f ! -
   sleep 5
 
   echo "Run MMseqs2 search with increased sensitivity"
+  # CHANGE PATHS FOR YOUR SYSTEM
   colabfold_search \
-      --mmseqs /mnt/raid/repos/mmseqs/bin/mmseqs \
+      --mmseqs /mmseqs/bin/mmseqs \
       --gpu 1 \
       --gpu-server 1 \
       -s 8.5 \
@@ -49,7 +53,7 @@ if [ ! -d "$output_folder/msas" ] || [ "$(find "$output_folder/msas" -type f ! -
       --use-env 1 \
       --use-templates 0 \
       "${input_fasta}" \
-      /mnt/raid/databases/colabfold \
+      /databases/colabfold \
       "${output_folder}/msas"
 
   # Check the result

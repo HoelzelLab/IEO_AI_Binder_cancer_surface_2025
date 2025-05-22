@@ -1,0 +1,14 @@
+#inference config file dummy data
+inputPdb=target.pdb
+numberOfDesigns=2000
+contigString=[A1-200/0 50-150]
+hotspotString=[A180,A181,A182]
+noise_scale_ca=0
+noise_scale_frame=0
+#secondaryStructureFiltering
+minRes=50
+maxRes=70
+minHelix=3
+minStrand=0
+#extract
+pae_cutoff=10.0
