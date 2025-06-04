@@ -1,9 +1,10 @@
-[![bioRxiv](https://img.shields.io/badge/bioRxiv-Preprint-orange)]([https://www.biorxiv.org/content/10.1101/2024.01.01.123456v1](https://www.biorxiv.org/content/10.1101/2025.05.11.652819v1))
+[![bioRxiv](https://img.shields.io/badge/bioRxiv-Preprint-orange)](https://doi.org/10.1101/2025.05.11.652819)
 
 
 # IEO_AI_Binder_cancer_surface_2025
 This repository contains the code used in our study "Development of AI-designed protein binders for detection and targeting of cancer cell surface proteins"
-https://www.biorxiv.org/content/10.1101/2025.05.11.652819v1
+
+The preprint is available: [here](https://doi.org/10.1101/2025.05.11.652819)
 
 To use the code, users must install the following dependencies separately. The code is designed with the assumption that these dependencies are installed in distinct Conda environments. When utilizing these tools, users have to cite each one individually and review and adhere to their respective licenses.
 
