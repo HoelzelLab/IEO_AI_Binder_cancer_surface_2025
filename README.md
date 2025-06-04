@@ -1,3 +1,6 @@
+[![bioRxiv](https://img.shields.io/badge/bioRxiv-Preprint-orange)]([https://www.biorxiv.org/content/10.1101/2024.01.01.123456v1](https://www.biorxiv.org/content/10.1101/2025.05.11.652819v1))
+
+
 # IEO_AI_Binder_cancer_surface_2025
 This repository contains the code used in our study "Development of AI-designed protein binders for detection and targeting of cancer cell surface proteins"
 https://www.biorxiv.org/content/10.1101/2025.05.11.652819v1
